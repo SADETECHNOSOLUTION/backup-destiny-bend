@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: comment-module
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  resources:
+    static-locations: classpath:/static/
+
+server:
+  port: 8085
+
+eureka:
+  client:
+    service-url:
+      defaultZone: https://destiny-eureka.onrender.com/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
